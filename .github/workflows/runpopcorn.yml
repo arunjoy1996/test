@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
-  pull_requests:write
+  pull_requests: write
 jobs:
   test_model:
   runs-on: ubuntu-latest
@@ -14,4 +14,4 @@ jobs:
       python-version: "3.9"
     - name : run extra file
       run: |
-      python cool.py > file.txt 2>&1
+      python cool.py | tee file.txt
