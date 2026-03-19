@@ -1,0 +1,17 @@
+name: workflow test
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull_requests:write
+jobs:
+  test_model:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+      python-version: "3.9"
+    - name : run extra file
+      run: |
+      python cool.py > file.txt 2>&1
